@@ -18,8 +18,11 @@
 // @lc code=start
 class Solution {
     public int climbStairs(int n) {
-        if(n < 2) return n;
-        int first = 1,second = 1, res = 0;
+        if (n < 2)
+            return n;
+        var first = 1;
+        var res = 0;
+        var second = 1;
         for (int i = 2; i <= n; i++) {
             res = first + second;
             first = second;
@@ -29,4 +32,3 @@ class Solution {
     }
 }
 // @lc code=end
-
