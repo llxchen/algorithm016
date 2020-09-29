@@ -8,19 +8,23 @@ import java.util.ArrayList;
  * [46] 全排列
  */
 
-/**
- * 自下而上
- */
-// @lc code=start
-
-/**
- * code flow start = 0, permutation = [] i = 0, newPermutation = [1] start = 1,
- * permutation = [1] i = 0, newPermutation = [2, 1] start = 2, permutation = [2,
- * 1] i = 0, newPermutation = [3, 2, 1] i = 1, newPermutation = [2, 3, 1] i = 2,
- * newPermutation = [2, 1, 3] i = 1, newPermutation = [1, 2] start = 2,
- * permutation = [1, 2] i = 0, newPermutation = [3, 1, 2] i = 1, newPermutation
- * = [1, 3, 2] i = 2, newPermutation = [1, 2, 3]
- */
+//
+//  自下而上
+//  code flow
+//  start = 0, permutation = []
+//  i = 0, newPermutation = [1]
+//  	    start = 1, permutation = [1]
+//  	    i = 0, newPermutation = [2, 1]
+//  		    start = 2, permutation = [2, 1]
+//  		    i = 0, newPermutation = [3, 2, 1]
+//  		    i = 1, newPermutation = [2, 3, 1]
+//  		    i = 2, newPermutation = [2, 1, 3]
+//  	    i = 1, newPermutation = [1, 2]
+//  		    start = 2, permutation = [1, 2]
+//  		    i = 0, newPermutation = [3, 1, 2]
+//  		    i = 1, newPermutation = [1, 3, 2]
+//  		    i = 2, newPermutation = [1, 2, 3]
+//  
 class Solution {
     public List<List<Integer>> permute(final int[] nums) {
         final List<List<Integer>> permutations = new ArrayList<>();
