@@ -27,7 +27,9 @@ class Solution {
         int steps = 0;  //跳跃步骤
         int end = 0;    //当前跳跃结束索引点
         for (int i = 0; i < length - 1; i++) {
+            //在跳跃范围内取可跳跃最大的点
             maxPosition = Math.max(maxPosition, i + nums[i]);
+            //当前可跳跃范围结束时，取最大可跳跃的点更新至end,并增加一个步骤
             if (i == end) {
                 end = maxPosition;
                 steps++;
