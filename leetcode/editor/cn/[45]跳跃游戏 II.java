@@ -38,4 +38,27 @@ class Solution {
         return steps;
     }
 }
+/*
+ *  方法2，while循环更直观:
+ *　furthest to record the furthest place previous step can reach
+ *  max to record the furthest place current step can reach.
+ *  result to record the minimum step we need to reach the last place.
+ *  Traverse the array to update max. Update furthest with max and result with result + 1 each time current place reach the furthest. Keep traversing until we reach the last place.
+ */
+
+//class Solution {
+//    public int jump(int[] nums) {
+//        int furthest = 0, result = 0, i = 0;
+//        while (i < nums.length && furthest < nums.length - 1) {
+//            int max = 0;
+//            while (i <= furthest) {
+//                max = Math.max(max, nums[i] + i);
+//                i++;
+//            }
+//            furthest = max;
+//            result++;
+//        }
+//        return result;
+//    }
+//}
 //leetcode submit region end(Prohibit modification and deletion)

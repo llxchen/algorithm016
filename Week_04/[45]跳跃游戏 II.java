@@ -20,22 +20,45 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+//class Solution {
+//    public int jump(int[] nums) {
+//        int length = nums.length;   //数据总长度
+//        int maxPosition = 0;    //当前跳跃范围内最大的点
+//        int steps = 0;  //跳跃步骤
+//        int end = 0;    //当前跳跃结束索引点
+//        for (int i = 0; i < length - 1; i++) {
+//            //在跳跃范围内取可跳跃最大的点
+//            maxPosition = Math.max(maxPosition, i + nums[i]);
+//            //当前可跳跃范围结束时，取最大可跳跃的点更新至end,并增加一个步骤
+//            if (i == end) {
+//                end = maxPosition;
+//                steps++;
+//            }
+//        }
+//        return steps;
+//    }
+//}
+/*
+ *  方法2，while循环更直观:
+ *　furthest to record the furthest place previous step can reach
+ *  max to record the furthest place current step can reach.
+ *  result to record the minimum step we need to reach the last place.
+ *  Traverse the array to update max. Update furthest with max and result with result + 1 each time current place reach the furthest. Keep traversing until we reach the last place.
+ */
+
 class Solution {
     public int jump(int[] nums) {
-        int length = nums.length;   //数据总长度
-        int maxPosition = 0;    //当前跳跃范围内最大的点
-        int steps = 0;  //跳跃步骤
-        int end = 0;    //当前跳跃结束索引点
-        for (int i = 0; i < length - 1; i++) {
-            //在跳跃范围内取可跳跃最大的点
-            maxPosition = Math.max(maxPosition, i + nums[i]);
-            //当前可跳跃范围结束时，取最大可跳跃的点更新至end,并增加一个步骤
-            if (i == end) {
-                end = maxPosition;
-                steps++;
+        int furthest = 0, result = 0, i = 0;
+        while (i < nums.length && furthest < nums.length - 1) {
+            int max = 0;
+            while (i <= furthest) {
+                max = Math.max(max, nums[i] + i);
+                i++;
             }
+            furthest = max;
+            result++;
         }
-        return steps;
+        return result;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
