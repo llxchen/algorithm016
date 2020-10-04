@@ -43,6 +43,7 @@ class Solution {
             res = first + second;
             first = second;
             second = res;
+            System.out.println("");
         }
         return res;
     }
